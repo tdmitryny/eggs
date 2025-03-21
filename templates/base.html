@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Egg Price Tracker{% endblock %}</title>
+    
+    {% load static %}
+    
+    <!-- Basic styling -->
+    
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Extra CSS block for template-specific styling -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
+
+    <!-- Main content -->
+    <main class="container">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p>&copy; {% now "Y" %} Egg Price Tracker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    
+    <!-- Extra JavaScript block for template-specific scripts -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
