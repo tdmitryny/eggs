@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Post | Egg Price Tracker{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <article class="blog-post">
+                <!-- Post Header -->
+                <header class="mb-4">
+                    <h1 class="display-4 mb-3">{{ post.title }}</h1>
+                    <div class="text-muted mb-3">
+                        Published on {{ post.created_at|date:"F j, Y" }}
+                    </div>
+                </header>
+                
+                <!-- Post Featured Image -->
+                {% if post.image and post.image.url %}
+                <div class="mb-4">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded">
+                </div>
+                {% endif %}
+                
+                <!-- Post Content -->
+                <div class="blog-content mb-5">
+                    {{ post.content|safe }}
+                </div>
+                
+                <!-- Post Navigation -->
+                <div class="border-top pt-4 mt-5">
+                    <a href="{% url 'blog' %}" class="btn btn-outline-primary">&larr; Back to All Posts</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}

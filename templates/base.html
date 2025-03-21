@@ -6,9 +6,10 @@
     <title>{% block title %}Egg Price Tracker{% endblock %}</title>
     
     {% load static %}
+    {% load django_bootstrap5 %}
     
-    <!-- Basic styling -->
-    
+    <!-- Bootstrap CSS -->
+    {% bootstrap_css %}
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -20,32 +21,56 @@
     <!-- Header/Navbar -->
     <header>
         {% block header %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Egg Price Tracker</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Prices</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         {% endblock %}
     </header>
 
     <!-- Main content -->
-    <main class="container">
-      {% block content %}
-      {% endblock %}
+    <main class="container py-4">
+        <!-- Messages/Alerts -->
+        {% bootstrap_messages %}
+        
+        <!-- Page content -->
+        {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-dark text-white py-4 mt-auto">
         <div class="container">
-            <div class="text-center">
-                <p>&copy; {% now "Y" %} Egg Price Tracker. All rights reserved.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Egg Price Tracker</h5>
+                    <p class="small">Helping you find the best egg prices since 2025</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; {% now "Y" %} Egg Price Tracker. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    <!-- Bootstrap JS -->
+    {% bootstrap_javascript %}
     
     <!-- Extra JavaScript block for template-specific scripts -->
     {% block extra_js %}{% endblock %}
