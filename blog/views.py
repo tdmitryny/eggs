@@ -13,3 +13,5 @@ class PostView(DetailView):
     model = Post
     template_name = 'blog/post.html'
     context_object_name = 'post'
+    slug_url_kwarg = 'slug'  # This tells the view to look for 'slug' in the URL
+    slug_field = 'slug'  # This tells the view which field to use for the slug lookup
