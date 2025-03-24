@@ -1,9 +1,10 @@
 /* Basic styling for Egg Price Tracker */
 
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f8f9fa;
+    background-color: #f8f8f4;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -28,14 +29,44 @@ body {
     margin-bottom: 2rem;
 }
 
+
+.page-item.active .page-link {
+    background-color: #ffc107 !important; /* Change to desired color */
+    border-color: #ffc107 !important;
+    color:#000 !important;
+}
+
+.page-item .page-link {
+    color: #007bff; /* Change text color */
+}
+
+.page-item:hover .page-link {
+    background-color: #f8d7da; /* Change background color on hover */
+    color: #000; /* Change text color on hover */
+}
+
+
+
+
+
 /* Custom header and footer styling */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+.text-logo{
+    color: #4b2e15;
+    
+}
+
+
+
+
 footer {
     margin-top: auto;
 }
+
+
 
 /* TinyMCE content styling */
 .tox-tinymce {
