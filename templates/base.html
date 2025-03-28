@@ -42,7 +42,7 @@
         {% block header %}
         <nav class="navbar navbar-expand-lg ">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{% url 'blog' %}">
                     <img src="{% static 'images/egg-logo.svg' %}" alt="Egg Logo" class="img-fluid">
                     <span class="text-logo fs-2 fw-bold">EggPriceChart</span>.com</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,12 +70,27 @@
     </header>
 
     <!-- Main content -->
-    <main class="container py-4">
-        <!-- Messages/Alerts -->
+    <main class="container py-4 d-flex flex-column align-items-center">
+        <!-- Headline -->
+         <div class="d-flex flex-column align-items-center mb-5 mt-5 w-75 p-3">
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="text-center text-logo fw-bold">Egg Price Chart: Daily & Monthly Price Updates</h1>
+                <h2 class="text-center text-logo">Predict Future Egg Prices</h2>
+            </div>
+            <p class="text-muted text-center pb-3">Stay informed with our up-to-date egg price chart, featuring daily and monthly price trends. Whether you're a buyer, seller, or industry expert, tracking these changes helps you make smarter purchasing decisions.</p>
+            <div>
+                <button type="button" class="btn btn-warning btn-lg">Egg Trends and News</button>
+                <button type="button" class="btn btn-outline-warning btn-lg">Veiw Live Chart</button>
+            </div>
+         </div>
+
+
         {% bootstrap_messages %}
         
         <!-- Page content -->
-        {% block content %}{% endblock %}
+        {% block content %}
+
+        {% endblock %}
     </main>
 
     <!-- Footer -->

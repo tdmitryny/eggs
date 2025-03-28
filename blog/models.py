@@ -24,4 +24,6 @@ class Post(models.Model):
         verbose_name_plural = 'Posts'
         ordering = ['-created_at']
 
+
+
     
