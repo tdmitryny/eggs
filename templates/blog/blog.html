@@ -2,11 +2,37 @@
 
 {% block title %}Egg Price Chart{% endblock %}
 
+
+
 {% block content %}
-<div class="container">
 
 
-    <h1 class="text-center mb-4">Latest Blog Posts</h1>
+        <!-- Hero -->
+    <div class="d-flex flex-column align-items-center mb-5 mt-5 w-75 p-3">
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="text-center text-logo fw-bold">Egg Price Chart: Daily & Monthly Price Updates</h1>
+            <h2 class="text-center text-logo">Predict Future Egg Prices</h2>
+        </div>
+        <p class="text-muted text-center pb-3">Stay informed with our up-to-date egg price chart, featuring daily and monthly price trends. Whether you're a buyer, seller, or industry expert, tracking these changes helps you make smarter purchasing decisions.</p>
+        <div class="d-flex justify-content-center gap-2">
+            <a href="{% url 'chart' %}" class="btn btn-warning btn-lg">Egg Trends and News</a>
+            <a href="{% url 'chart' %}" class="btn btn-outline-warning btn-lg">Veiw Live Chart</a>
+        </div>
+    </div>
+
+
+    
+    <div class="text-center">
+        <div class="fw-bold">Current Price Chart of 1 Dozen Eggs</div>
+        <div class="fs-1 fw-bold text-logo">$3.99</div>
+        <div class="text-muted pb-3">as of 2025-03-29</div>
+    </div>
+
+
+
+
+
+    <h1 class="text-center mb-4 mt-5 text-logo fw-bold">Latest News</h1>
     
     <div class="row">
         {% for post in posts %}
@@ -77,5 +103,5 @@
             </ul>
         </nav>
     {% endif %}
-</div>
+
 {% endblock %}

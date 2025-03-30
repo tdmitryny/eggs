@@ -49,17 +49,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto nav-underline">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Home</a>
+                            <a class="nav-link {% if request.path == '/' %} active {% endif %}" aria-current="page" href="{% url 'blog' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Nationalwide Data</a>
+                        <li class="nav-item text-logo">
+                            <a class="nav-link {% if request.path == '/livechart' %}active {% endif %}" aria-current="page" href="{% url 'chart' %}">Nationalwide Live Data</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-logo">
                             <a class="nav-link" href="#">Blog</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-logo">
                             <a class="nav-link" href="#">About</a>
                         </li>
                     </ul>
@@ -71,22 +71,7 @@
 
     <!-- Main content -->
     <main class="container py-4 d-flex flex-column align-items-center">
-
-        
-        <!-- Headline -->
-         <div class="d-flex flex-column align-items-center mb-5 mt-5 w-75 p-3">
-            <div class="d-flex flex-column align-items-center">
-                <h1 class="text-center text-logo fw-bold">Egg Price Chart: Daily & Monthly Price Updates</h1>
-                <h2 class="text-center text-logo">Predict Future Egg Prices</h2>
-            </div>
-            <p class="text-muted text-center pb-3">Stay informed with our up-to-date egg price chart, featuring daily and monthly price trends. Whether you're a buyer, seller, or industry expert, tracking these changes helps you make smarter purchasing decisions.</p>
-            <div>
-                <button type="button" class="btn btn-warning btn-lg">Egg Trends and News</button>
-                <button type="button" class="btn btn-outline-warning btn-lg">Veiw Live Chart</button>
-            </div>
-         </div>
-
-         <canvas id="myChart" width="400" height="100"></canvas>
+         
 
 
         {% bootstrap_messages %}
@@ -119,45 +104,6 @@
     {% block extra_js %}{% endblock %}
     <script src="{% static 'js/script.js' %}"></script>
 
-    <script>
-        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(248, 248, 244, 0.1)',
-        tension: 0.1
-      }]
-    };
 
-    // Config
-    const config = {
-      type: 'line',
-      data: data,
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Monthly Data Line Chart'
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    };
-
-    // Render the chart
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-    </script>
 </body>
 </html>

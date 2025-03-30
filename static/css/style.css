@@ -10,6 +10,9 @@ body {
     min-height: 100vh;
 }
 
+
+
+
 .blog-content {
     font-size: 1.1rem;
     line-height: 1.7;
@@ -44,6 +47,7 @@ body {
     background-color: #f8d7da; /* Change background color on hover */
     color: #000; /* Change text color on hover */
 }
+
 
 
 
