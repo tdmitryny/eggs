@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blog',
     'tinymce',
     'eggprice',
+    'about',
     'django_bootstrap5',
 
 ]
