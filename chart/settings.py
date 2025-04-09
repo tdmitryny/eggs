@@ -26,7 +26,7 @@ env = environ.Env(
 # Initialize environment variables
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-API_KEY = os.environ.get('API_KEY')
+API_KEY = env('API_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
