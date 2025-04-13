@@ -26,7 +26,9 @@ env = environ.Env(
 # Initialize environment variables
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-API_KEY = env('API_KEY')
+
+# SECRET_KEY = env('SECRET_KEY')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -96,6 +98,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+CACHES = {
+    'default' : {
+        'BACKEND' : "django.core.cache.backends.filebased.FileBasedCache",
+        'LOCATION' : BASE_DIR / 'cache'}
+
 }
 
 
